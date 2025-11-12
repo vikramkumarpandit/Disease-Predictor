@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disease Predictor - MedNext</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Disease Prediction System 🧠</h1>
+
+    <!-- Step 1: number of symptoms -->
+    <div id="step1">
+      <p>Enter the number of symptoms you are experiencing:</p>
+      <input type="number" id="numSymptoms" placeholder="e.g., 3" min="1" max="15">
+      <button onclick="generateSymptomInputs()">Next</button>
+    </div>
+
+    <!-- Step 2: dynamically generated inputs -->
+    <form id="symptomForm" hidden>
+      <div id="symptomInputs"></div>
+      <button type="button" onclick="submitSymptoms()">Predict</button>
+    </form>
+
+    <!-- Result: Top predictions table -->
+    <div class="result" id="result" hidden>
+      <h2>Top Predictions</h2>
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>Disease</th>
+            <th>Chances (%)</th>
+            <th>Specialist</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="error" class="error" hidden></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
